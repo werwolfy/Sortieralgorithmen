@@ -1,3 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using System.Diagnostics;
+using ItemsToSort;
 
-Console.WriteLine("Hello, World!");
+NumbersProvieder numbersProvieder = new NumbersProvieder();
+List<int> listToSort = numbersProvieder.CreateList(100_000);
+BubbleSort.BubbleSort bubbleSort = new();
+Stopwatch sw = new Stopwatch();
+sw.Start();
+bubbleSort.Sort(listToSort);
+sw.Stop();
+Console.WriteLine(sw.ElapsedMilliseconds);
